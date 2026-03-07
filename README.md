@@ -141,7 +141,7 @@ Each skill declares a `model_tier` in its SKILL.md frontmatter — the minimum m
 
 | Tier | When to use | Examples |
 |------|-------------|----------|
-| **fast** | Mechanical, read-only, or trivial tasks | summarize, paste, screenshot, researcher, whip |
+| **fast** | Mechanical, read-only, or trivial tasks | summarize, paste, screenshot, researcher, whip, hours, sitrep |
 | **standard** | Standard implementation, analysis, operational work (default) | coder, tester, reviewer, devops, gacp |
 | **advanced** | Deep reasoning, creative synthesis, strategic orchestration | architect, visionary, conductor, storyteller |
 
@@ -180,12 +180,6 @@ skills/
 
 Browse `~/.claude/skills/` to see available skills.
 
-## Skill Inheritance
-
-All skills in this repository inherit from the `baseline` skill. This is achieved by adding a `base_skill: baseline` property to the frontmatter of each skill's `SKILL.md` file.
-
-The `baseline` skill provides a set of common conventions and context that are shared across all skills. This allows for a more consistent and predictable experience when working with different skills.
-
 ## Design Philosophy
 
 ### Model-Agnostic
@@ -203,6 +197,7 @@ This library works with **any LLM** (Claude, Gemini, GPT, etc.). All models read
 ```
 Project files:
   CLAUDE.md  ─┐
+  CODEX.md   ─┤
   GEMINI.md  ─┼──> AGENTS.md ──> skill library AGENTS.md ──> SKILL.md files
   .cursor/   ─┘
 ```
@@ -248,7 +243,8 @@ Separate tooling limitations from skill instructions:
 project/
 ├─ AGENTS.md        # Instructions: points to skill library, permissions, rules
 ├─ CLAUDE.md        # Pointer: "Read AGENTS.md"
-├─ GEMINI.md        # Pointer: "Read AGENTS.md" (identical to CLAUDE.md)
+├─ CODEX.md         # Pointer: "Read AGENTS.md" (identical)
+├─ GEMINI.md        # Pointer: "Read AGENTS.md" (identical)
 ├─ .cursor/rules/   # Pointer: "Read AGENTS.md"
 └─ README.md        # Human docs (LLM reads for project context, not instructions)
 ```
@@ -259,12 +255,17 @@ project/
 iahp/
 ├─ AGENTS.md        # Entry point: purpose, discovery rules, behavioral rules
 ├─ CLAUDE.md        # Pointer (for direct entry into library)
-├─ GEMINI.md        # Pointer (identical to CLAUDE.md)
+├─ CODEX.md         # Pointer (identical)
+├─ GEMINI.md        # Pointer (identical)
 ├─ skills.json      # Machine-readable manifest (for tooling)
 ├─ README.md        # Human documentation
 └─ <skill>/
    └─ SKILL.md      # Skill definition
 ```
 
+## Attribution
 
+Created by Shaun Sauve. Repository: [github.com/shaunsauve/iahp-private](https://github.com/shaunsauve/iahp-private)
+
+Licensed under the [IAHP License](LICENSE) — do whatever you want with it, just keep the attribution. Contributors welcome!
 
