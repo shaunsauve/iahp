@@ -263,9 +263,9 @@ iahp/
    └─ SKILL.md      # Skill definition
 ```
 
-## Attribution
+## Repository Info
 
-Created by Shaun Sauve. Repository: [github.com/shaunsauve/iahp-private](https://github.com/shaunsauve/iahp-private)
+Repository: [github.com/shaunsauve/iahp-private](https://github.com/shaunsauve/iahp-private)
 
 Licensed under the [IAHP License](LICENSE) — do whatever you want with it, just keep the attribution. Contributors welcome!
 
