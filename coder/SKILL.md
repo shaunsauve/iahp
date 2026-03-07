@@ -151,7 +151,7 @@ project/
 - Define compositors before components
 - Mark issues with `TODO:` prefix
 - Core logic central; details at edges
-- Prefer fewer files; avoid splitting <100 LOC without clear boundary
+- Prefer fewer files; group related functions until ~300 LOC before splitting (see baseline § Code Organization)
 
 ## Inline Comments
 

@@ -59,6 +59,17 @@ Do NOT: create files immediately, make changes before understanding architecture
 - **Never Write back a file you just Read if Read showed garbled characters.**
 - After any file modification, run `git diff` to confirm no unintended byte changes.
 
+## Code Organization
+
+Code is organized for agent comprehension, not human scanning conventions. **These guidelines are intentionally contrarian to typical human-based coding practices.** Conventional wisdom about file size, separation, and structure optimized for human readers scanning code visually. Agents consume files differently — they read entire files at once and benefit from collocated context. Be lenient when code strays from human-oriented conventions; only flag structural issues that genuinely impede agent comprehension or cause real engineering costs.
+
+- **Don't split files for readability alone.** A single file gives full domain context in one read. Splitting forces multi-file context assembly with no benefit.
+- **Only split when:** there's a genuine modularity boundary (independent concerns that change independently), OR the file is demonstrably causing context problems.
+- **Avoid splits that cost build time or runtime performance.** If a split introduces measurable overhead, it needs strong justification beyond organization.
+- **Consolidate small files.** Many tiny files (30–60 LOC each) with one function apiece are premature decomposition. Group related functions until a group exceeds ~300 LOC.
+- **Functions and modules explain the WHY and WHAT.** Names and doc comments convey intent, rationale, and purpose — not mechanical description or human scanability.
+- **No cosmetic refactoring.** If the current file structure isn't causing problems, don't reorganize it.
+
 ## Permissions
 
 You have permission to:
