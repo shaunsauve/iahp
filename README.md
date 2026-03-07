@@ -1,6 +1,6 @@
 # It's a Human Problem. Stupid
 
-Reusable session instructions for AI-assisted development. **Universal skill library for any model** (Claude, Gemini, etc.). Repo: `iahp`.
+Reusable session instructions for AI-assisted development. **Universal skill library for any model** (Claude, Gemini, etc.). Repo: `iahp`. Licensed under the [IAHP License](LICENSE).
 
 **For AI agents:** Start with **AGENTS.md** in this repo. Projects point their model-specific file (e.g. `claude.md`, `gemini.md`) to AGENTS.md so the model learns purpose, which skills to use, and avoids reading full skills until work begins.
 
