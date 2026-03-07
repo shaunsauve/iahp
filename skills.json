@@ -1,0 +1,267 @@
+{
+  "skills": [
+    {
+      "name": "administrative-advisor",
+      "description": "Task-oriented project management for non-technical initiatives. Tracks goals, tasks, documents, and activity for finite projects like taxes, renovations, or personal initiatives.",
+      "path": "administrative-advisor",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "agents-manager",
+      "description": "Agent lifecycle and coordination manager. Spawns, tracks, and orchestrates agent instances mapped to skills.",
+      "path": "agents-manager",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "architect",
+      "description": "System architect for designing technical approaches, refining architecture, and bridging vision to implementation. Focuses on ARCHITECTURE.md and REQUIREMENTS.md. Does NOT write code.",
+      "path": "architect",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "advanced"
+    },
+    {
+      "name": "baseline",
+      "description": "Base project context instructions. Read docs/ and README.md for project understanding.",
+      "path": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "build",
+      "description": "Build project artifacts with framework detection, staleness checks, and version bumping.",
+      "path": "build",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "standard"
+    },
+    {
+      "name": "conductor",
+      "description": "Persistent workflow orchestrator for multi-skill tasks. Plans a dynamic pipeline, loads skills in sequence, and manages phase transitions with user confirmation.",
+      "path": "conductor",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "advanced"
+    },
+    {
+      "name": "coder",
+      "description": "Execute coding goals for new or ongoing projects. Manages canonical context files (PROJECT.md, REQUIREMENTS.md, TODO.md), follows strict coding standards, and maintains project continuity.",
+      "path": "coder",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "devops",
+      "description": "Cloud infrastructure operations, deployment, CI/CD, and observability. Auto-detects tooling and cloud provider from project context.",
+      "path": "devops",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "executive-advisor",
+      "description": "Executive knowledge management and advisory for leadership roles. Maintains append-only timelines, provides career/business/technical guidance. Does NOT discard information.",
+      "path": "executive-advisor",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "advanced"
+    },
+    {
+      "name": "gate",
+      "description": "UX and quality review gate. Audits recent work, surfaces issues, facilitates iteration before proceeding to implementation.",
+      "path": "gate",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "gacp",
+      "description": "Git Add, Commit, Push. Stages all progress-related changes, crafts a commit message, and pushes to origin. Fast, action-only.",
+      "path": "gacp",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "standard"
+    },
+    {
+      "name": "gccp",
+      "description": "Git Collapse, Commit, Push. Squash-merges a feature branch into the target branch as a single commit, then pushes.",
+      "path": "gccp",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "standard"
+    },
+    {
+      "name": "hours",
+      "description": "Time tracking for client projects. Add hours, submit periods, view summaries.",
+      "path": "hours",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "fast"
+    },
+    {
+      "name": "handoff",
+      "description": "End-of-session wrap-up. Updates RESUME.md and TOT.md for continuity, then delegates to /gacp for commit and push.",
+      "path": "handoff",
+      "base_skill": "baseline",
+      "skill_type": "functional",
+      "model_tier": "standard"
+    },
+    {
+      "name": "paste",
+      "description": "Clipboard paste helper for text and images on macOS terminals (especially iTerm). Use when user asks to export clipboard text or image to a file path.",
+      "path": "paste",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "fast"
+    },
+    {
+      "name": "reviewer",
+      "description": "Objective code and test reviewer. Validates against project documentation, identifies issues, and collaborates with user on remediation.",
+      "path": "reviewer",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "sast",
+      "description": "Static Application Security Testing. Scans code for vulnerabilities using language-appropriate tools (semgrep, bandit, gosec, brakeman, etc.). Runs tools directly.",
+      "path": "sast",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "screenshot",
+      "description": "Capture and analyze screenshots. Full screen or targeted window/app. Saves to /tmp for analysis.",
+      "path": "screenshot",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "fast"
+    },
+    {
+      "name": "send",
+      "description": "Distribute project artifacts to a configured destination. Delegates building to /build.",
+      "path": "send",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "standard"
+    },
+    {
+      "name": "setup",
+      "description": "Bootstrap new projects with standard directory structure and documentation templates based on project archetype.",
+      "path": "setup",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "sitrep",
+      "description": "Situation report: compact summary of what was just done and the next few steps.",
+      "path": "sitrep",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "fast"
+    },
+    {
+      "name": "skeptic",
+      "description": "Architectural skeptic for Tech projects. Questions excess complexity, misleading abstractions, unintuitive design, and gaps between intent and reality. Read-only; never changes anything without explicit user confirmation and delegation.",
+      "path": "skeptic",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "advanced"
+    },
+    {
+      "name": "skill-manager",
+      "description": "Skill management and development for the iahp repository. Creates, modifies, and maintains skills and repository infrastructure.",
+      "path": "skill-manager",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "step",
+      "description": "Interactive step-through mode for decisions, action items, or review points. Presents items one at a time, waits for explicit advance. Layers onto the active skill.",
+      "path": "step",
+      "base_skill": "baseline",
+      "skill_type": "functional",
+      "model_tier": "standard"
+    },
+    {
+      "name": "storyteller",
+      "description": "Story Architect for any creative domain. Audits narrative/creative framework for consistency, identifies structural issues, proposes solutions. Manages STORY.md (CD1), WORLD.md, and NARRATIVES.md (CD2). Does NOT write stories or invent creative content without explicit direction.",
+      "path": "storyteller",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "advanced"
+    },
+    {
+      "name": "summarize",
+      "description": "Live 4-line project dashboard. Updates SUMMARY.json fields via tiered hint protocol. Always runs on cheapest model.",
+      "path": "summarize",
+      "base_skill": "baseline",
+      "skill_type": "functional",
+      "model_tier": "fast"
+    },
+    {
+      "name": "tester",
+      "description": "Strategic test orchestration for agent-built projects. Breaks testing into iterative suites and delegates to framework-specific agents.",
+      "path": "tester",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "researcher",
+      "description": "Codebase exploration, technology investigation, and domain research. Read-only. Designed for subagent delegation.",
+      "path": "researcher",
+      "base_skill": "baseline",
+      "skill_type": "functional",
+      "model_tier": "fast"
+    },
+    {
+      "name": "troubleshooter",
+      "description": "Interactive troubleshooter for complex problems requiring manual verification.",
+      "path": "troubleshooter",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "standard"
+    },
+    {
+      "name": "ucc",
+      "description": "User Context Compact: sync + cleanup for user context targets. Runs UCS first (bidirectional sync), then compacts: clears completed items, adds triage checkboxes to minutes/notes, normalizes formatting. Reads .ucs.json for targets.",
+      "path": "ucc",
+      "base_skill": "baseline",
+      "skill_type": "functional",
+      "model_tier": "standard"
+    },
+    {
+      "name": "ucs",
+      "description": "User Context Sync: bidirectional sync between repo context and user context targets (Obsidian, future: Slack, email). Reads .ucs.json for target locations. Push repo info outbound; distill unseen user changes inbound.",
+      "path": "ucs",
+      "base_skill": "baseline",
+      "skill_type": "functional",
+      "model_tier": "standard"
+    },
+    {
+      "name": "visionary",
+      "description": "Product visionary for brainstorming, planning, and refining product direction. Focuses on VISION.md with epics, user stories, personas, and use cases. Does NOT write code or requirements.",
+      "path": "visionary",
+      "base_skill": "baseline",
+      "skill_type": "assistant",
+      "model_tier": "advanced"
+    },
+    {
+      "name": "whip",
+      "description": "Launch a command in the current terminal with auto-retry for known prompts (high demand, y/N confirmations).",
+      "path": "whip",
+      "base_skill": "none",
+      "skill_type": "functional",
+      "model_tier": "fast"
+    }
+  ]
+}

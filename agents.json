@@ -1,0 +1,151 @@
+{
+  "agents": [
+    {
+      "name": "coder",
+      "skill": "coder",
+      "description": "Code implementation agent for executing coding goals",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "architect",
+      "skill": "architect",
+      "description": "Architecture design agent for system planning",
+      "subagent_type": "Plan",
+      "default_model": "opus"
+    },
+    {
+      "name": "visionary",
+      "skill": "visionary",
+      "description": "Product vision and strategy agent",
+      "subagent_type": "general-purpose",
+      "default_model": "opus"
+    },
+    {
+      "name": "explorer",
+      "skill": "baseline",
+      "description": "Fast codebase exploration and discovery agent",
+      "subagent_type": "Explore",
+      "default_model": "haiku"
+    },
+    {
+      "name": "reviewer",
+      "skill": "reviewer",
+      "description": "Code and test review agent",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "tester",
+      "skill": "tester",
+      "description": "Test orchestration and execution agent",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "researcher",
+      "skill": "researcher",
+      "description": "Codebase exploration, technology investigation, and domain research. Read-only.",
+      "subagent_type": "Explore",
+      "default_model": "haiku"
+    },
+    {
+      "name": "summarize",
+      "skill": "summarize",
+      "description": "Lightweight SUMMARY.json updater. Accepts hints to set fields or synthesize text. Always runs on cheapest model.",
+      "subagent_type": "general-purpose",
+      "default_model": "haiku"
+    },
+    {
+      "name": "skeptic",
+      "skill": "skeptic",
+      "description": "Architectural complexity critic. Read-only structural analysis.",
+      "subagent_type": "Explore",
+      "default_model": "opus"
+    },
+    {
+      "name": "gate",
+      "skill": "gate",
+      "description": "UX and quality review gate. Read-only audit.",
+      "subagent_type": "Explore",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "sast",
+      "skill": "sast",
+      "description": "Static Application Security Testing. Runs scanning tools.",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "devops",
+      "skill": "devops",
+      "description": "Cloud infrastructure, deployment, CI/CD, and observability.",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "conductor",
+      "skill": "conductor",
+      "description": "Multi-skill workflow orchestrator. Spawns sub-agents for parallel execution.",
+      "subagent_type": "general-purpose",
+      "default_model": "opus"
+    },
+    {
+      "name": "storyteller",
+      "skill": "storyteller",
+      "description": "Narrative framework management. Writes STORY.md, WORLD.md.",
+      "subagent_type": "general-purpose",
+      "default_model": "opus"
+    },
+    {
+      "name": "executive-advisor",
+      "skill": "executive-advisor",
+      "description": "Executive knowledge management and advisory.",
+      "subagent_type": "general-purpose",
+      "default_model": "opus"
+    },
+    {
+      "name": "administrative-advisor",
+      "skill": "administrative-advisor",
+      "description": "Task-oriented project management for non-technical initiatives.",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "troubleshooter",
+      "skill": "troubleshooter",
+      "description": "Interactive diagnosis for complex problems.",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "setup",
+      "skill": "setup",
+      "description": "Bootstrap new projects with standard structure.",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "skill-manager",
+      "skill": "skill-manager",
+      "description": "Create, modify, and maintain skills in the iahp repository.",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "build",
+      "skill": "build",
+      "description": "Build project artifacts with framework detection and version bumping.",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    },
+    {
+      "name": "send",
+      "skill": "send",
+      "description": "Build and distribute project artifacts to configured destination.",
+      "subagent_type": "general-purpose",
+      "default_model": "sonnet"
+    }
+  ]
+}

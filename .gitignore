@@ -1,0 +1,23 @@
+.DS_Store
+
+# Claude Code local settings (user-specific permissions)
+.claude/settings.local.json
+
+# Nested repos / other projects
+oh-my-claude/
+_test_project/
+
+# Synology Drive case conflict files
+*CaseConflict.md
+
+# Internal working files (AI scratch/notes)
+docs/internal/
+
+# Python bytecode caches
+__pycache__/
+*.pyc
+
+# Summarize runtime files (generated/cached)
+SUMMARY.md
+SUMMARY.json
+.summarize-cache-hash
