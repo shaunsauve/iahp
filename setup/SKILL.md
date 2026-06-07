@@ -21,6 +21,8 @@ When run on an existing project, this skill can scan for deviations from the cur
 
 The README created by this skill should encode enough project structure context that future sessions need only read README.md to understand the project.
 
+This skill is also responsible for **Claude global config** at `~/.claude/` — currently `~/.claude/output-styles/`. On any invocation (including with no project args), it syncs canonical output styles from `setup/references/output-styles/` into `~/.claude/output-styles/`. See [Claude global config](#claude-global-config) below.
+
 ## Identity Announcement
 Follow baseline Identity Announcement Standard with name: "Setup"
 
@@ -314,6 +316,8 @@ When determining archetype:
 
 ## Workflow
 
+0. **Sync Claude global config (always runs):** Before anything else, sync `~/.claude/output-styles/` from `setup/references/output-styles/`. See [Claude global config](#claude-global-config) for the full procedure. This step runs on every invocation, even when no project path is provided.
+
 1. **Detect invocation context:**
    - Direct: `/setup [path]` → prompt for archetype
    - From skill: check mapping table above
@@ -443,6 +447,7 @@ This skill has explicit permission to:
 - Create all context files and directories in the target project (README.md, AGENTS.md, CLAUDE.md, GEMINI.md, CODEX.md, docs/, company/, etc.)
 - Create bootstrap pointer files (.cursor/rules/, .gitignore)
 - Create all archetype-specific structure files as defined in the Project Archetypes section
+- Create or update files in `~/.claude/output-styles/` from canonical sources in `setup/references/output-styles/` (see [Claude global config](#claude-global-config))
 
 **Git operations:**
 - Check remote configuration (git remote -v)
@@ -472,3 +477,29 @@ Templates for README, CLAUDE.md, CODEX.md, docs/, and archetype-specific files l
 | [references/nexus-multi-client-templates.md](references/nexus-multi-client-templates.md) | Creating Nexus (multi-client) files (clients/, current/, portfolio dashboard, etc.) |
 | [references/admin-templates.md](references/admin-templates.md) | Creating Admin files (TODO, GOALS, NOTES, LOG, inbox/, outbox/, contacts/, reference/) |
 | [references/creative-templates.md](references/creative-templates.md) | Creating Creative docs/ (WORLD, STORY, CREATIVE_WORK) |
+| [references/output-styles/](references/output-styles/) | Syncing `~/.claude/output-styles/` (see [Claude global config](#claude-global-config)) |
+
+---
+
+## Claude global config
+
+The `setup` skill owns `~/.claude/output-styles/`. Canonical output style files live in `setup/references/output-styles/` and are version-controlled with the rest of the skill library. On every invocation, the skill syncs them to the user's `~/.claude/output-styles/` directory.
+
+**Sync procedure:**
+
+1. Ensure `~/.claude/output-styles/` exists; create it if missing.
+2. For each `*.md` file in `setup/references/output-styles/`:
+   - If the same filename does not exist in `~/.claude/output-styles/`, write it (no prompt).
+   - If it exists and matches byte-for-byte, do nothing.
+   - If it exists but differs from the canonical version, show the user a short diff and ask: "Overwrite `~/.claude/output-styles/<name>` with the canonical version from the repo? (y/n)" — only overwrite on `y`.
+3. Files present in `~/.claude/output-styles/` that have no counterpart in the repo are left alone (user-local styles).
+
+**Activation reminder:** Creating a style file does not activate it. To make a style the default for a project, run `/output-style` in Claude Code or set `outputStyle` in `~/.claude/settings.json` (global) or `.claude/settings.json` (project).
+
+**Adding a new style:** Drop a new `<name>.md` file into `setup/references/output-styles/` with the standard frontmatter (`name`, `description`, optional `keep-coding-instructions`). It will be synced on the next `/setup` invocation.
+
+**Current styles:**
+
+| File | Purpose |
+|------|---------|
+| [silent.md](references/output-styles/silent.md) | Suppress all progress narration between tool calls |
